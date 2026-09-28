@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ── Design Tokens (Resmi PTPN IV / Palmvest360° / MyPalm) ──────────────────── */
+@layer base {
+  :root {
+    --primary-green: #00875a;
+    --primary-green-dark: #006b47;
+    --primary-green-light: #00a36c;
+    --secondary-teal: #00a389;
+    --accent-gold: #f5a623;
+    --accent-amber: #d97706;
+    --bg-canvas: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  }
+}
+
+/* ── Reset & Base ───────────────────────────────────────────────────────────── */
+html, body, #root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monospace for financial figures */
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+/* ── Custom Scrollbars ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ── Focus Ring ─────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
+}
+
+/* ── Select Styling ─────────────────────────────────────────────────────────── */
+select option {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+/* ── Smooth Transitions ─────────────────────────────────────────────────────── */
+button, a, select, input {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Print Styles ───────────────────────────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; font-size: 10pt; }
+}
